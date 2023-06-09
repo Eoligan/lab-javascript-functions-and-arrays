@@ -253,22 +253,26 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  const row = matrix.length -1;
-  const col = matrix[0].length -1;
+  const row = matrix.length - 1;
+  const col = matrix[0].length - 1;
 
-  let finalProduct = 0, maxProduct;
+  let finalProduct = 0,
+    maxProduct;
 
-  for (let i = 0; i < row; i++) {
-    for (let j = 0; j < col; j++) {
+  for (let i = 0; i <= row; i++) {
+    for (let j = 0; j <= col; j++) {
       if (i + 3 <= row) {
-        maxProduct = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        maxProduct =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        if (maxProduct > finalProduct) finalProduct = maxProduct;
       }
+
       if (j + 3 <= col) {
-        maxProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        maxProduct =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        if (maxProduct > finalProduct) finalProduct = maxProduct;
       }
-      if(maxProduct > finalProduct) finalProduct = maxProduct;
     }
-   
   }
   return finalProduct;
 }
@@ -281,7 +285,7 @@ const pequearr = [
   [1, 4, 3, 4, 5],
 ];
 
-console.log(greatestProduct(matrix));
+console.log(greatestProduct(pequearr));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
